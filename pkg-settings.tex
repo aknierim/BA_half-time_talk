@@ -23,16 +23,41 @@
 \setmathfont{XITS Math}[range={scr, bfscr}]
 \setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
 
+\begin{filecontents*}{\jobname.bib}
+@mastersthesis{hackfeld,
+  author      = {Hackfeld, J.},
+  title       = {Analyzing the Data Volume Reduction for the LST-1 Prototype of the Cherenkov Telescope Array},
+  % institution = {Department of Physics and Astronomy, Ruhr University Bochum},
+  year        = {2021},
+  address     = {Bochum}
+}
+@online{perezdiaz,
+  author       = {Pérez Diaz, G.},
+  year         = {2016},
+  url          = {https://www.cta-observatory.org/about/how-cta-works/},
+  organization = {CTA/ IAC},
+  urldate      = {2022-07-10}
+}
+\end{filecontents*}
+% reference source
+\addbibresource{\jobname.bib}
+
+
 % This adds a circle with a picture of your choice in it.
 % Usage:
 % \roundpic[<optional arguments>]{<radius of the cirlce [cm]>}{<picture width [cm]>}{<path_to_picture>}{x pos}{y pos}
-\newcommand{\roundpic}[6][]{
+\newcommand{\roundpic}[6][]{%
   \node [circle, draw, color=tugreen, minimum width = #2,
     path picture = {
       \node [#1] at (path picture bounding box.center) {
         \includegraphics[width=#3]{#4}};
-    }] at (#5,#6) {};}
+    }] at (#5,#6) {};}%
 
 % Comment this out to represent vectors with an arrow on top.
 % Uncomment this to represent vectors as bold symbols.
 \renewcommand{\vec}[1]{\mathbf{#1}}
+
+
+\newcommand{\yaml}[2]{%
+  \texttt{\textcolor{#1}{\detokenize{#2}}}%
+}
