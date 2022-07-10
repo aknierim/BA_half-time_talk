@@ -1,0 +1,101 @@
+\begin{tikzpicture}[scale=0.750, every node/.style={scale=0.8}]
+    \node [draw, circle, minimum size=1, align=left] (A) at (0,0) {Simulation Data};
+
+    \uncover<2->{
+    \ifdefined\darktheme
+        \fill [color=tulightgreen, fill opacity=0.7] (1.5,3) rectangle (7.5, -3);
+        \node at (4.5,2) [above] {\includegraphics[width=2cm]{logos/ctapipe_logo_light.pdf}};
+    \else
+        \fill [color=tugreen, fill opacity=0.3] (1.5,3) rectangle (7.5, -3);
+        \node at (4.5,2) [above] {\includegraphics[width=2cm]{logos/ctapipe_logo.png}};
+    \fi
+    \node [draw, circle, minimum size=1] (B) at (3,0) {\texttt{ctapipe-process}};
+    \draw [->, >=latex, to path={-- (\tikztotarget)}] (A) edge (B);
+    }
+
+    \uncover<3->{
+    \node [above] at (4.5,-2) {Run with python scripts and configs};
+    \node [draw, align=left] (BC) at (4.5,-2.5) {\texttt{cleaner\_config.yml}\\\texttt{prod5b\_lapalma\_alpha.yml}};
+    }
+
+    \only<3>{
+        \ifdefined\darktheme
+            \node [draw, color=darkmode, align=left] at (13.5,-0.11) {
+                \yaml{yamlblue}{ImageProcessor}\yaml{white}{:}\\
+                \bigskip
+                \quad\yaml{yamlblue}{image_cleaner_type}\yaml{white}{:} \yaml{yamlblue}{MARSImageCleaner}\\
+                \quad\quad\yaml{yamlblue}{MARSImageCleaner}\yaml{white}{:}\\
+                \quad\quad\quad\yaml{yamlblue}{picture_threshold_pe}\yaml{white}{:}\\
+                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{white}{type,} \yaml{yamlorange}{"LST*"}\yaml{white}{, 8.5}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{white}{type,} \yaml{yamlorange}{"MST*NectarCam"}\yaml{white}{, 9.0}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\yaml{yamlblue}{boundary_threshold_pe}\yaml{white}{:}\\
+                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{white}{type,} \yaml{yamlorange}{"LST*"}\yaml{white}{, 4.75}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{white}{type,} \yaml{yamlorange}{"MST*NectarCam"}\yaml{white}{, 4.5}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\yaml{yamlblue}{keep_isolated_pixels}\yaml{white}{:} \yaml{yamlblue}{false}\\
+                \bigskip
+                \quad\quad\quad\yaml{yamlblue}{min_picture_neighbors}\yaml{white}{: 2}\\
+                \quad\quad\yaml{yamlblue}{ImageQualityQuery}\yaml{white}{:}\\
+                \quad\quad\quad\yaml{yamlblue}{quality_criteria}\yaml{white}{:}\\
+                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_pixels"}\yaml{white}{,} \yaml{yamlorange}{"np.count_nonzero(image) > 2"}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_charge"}\yaml{white}{,} \yaml{yamlorange}{"image.sum() > 50"}\yaml{yamlyellow}{]}
+            };
+        \else
+            \node [draw, color=white, align=left] at (13.5,-0.11) {
+                \yaml{yamlblue}{ImageProcessor}\yaml{darkgray}{:}\\
+                \bigskip
+                \quad\yaml{yamlblue}{image_cleaner_type}\yaml{darkgray}{:} \yaml{yamlblue}{MARSImageCleaner}\\
+                \quad\quad\yaml{yamlblue}{MARSImageCleaner}\yaml{darkgray}{:}\\
+                \quad\quad\quad\yaml{yamlblue}{picture_threshold_pe}\yaml{darkgray}{:}\\
+                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{darkgray}{type,} \yaml{yamlorange}{"LST*"}\yaml{darkgray}{, 8.5}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{darkgray}{type,} \yaml{yamlorange}{"MST*NectarCam"}\yaml{darkgray}{, 9.0}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\yaml{yamlblue}{boundary_threshold_pe}\yaml{darkgray}{:}\\
+                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{darkgray}{type,} \yaml{yamlorange}{"LST*"}\yaml{darkgray}{, 4.75}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{darkgray}{type,} \yaml{yamlorange}{"MST*NectarCam"}\yaml{darkgray}{, 4.5}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\yaml{yamlblue}{keep_isolated_pixels}\yaml{darkgray}{:} \yaml{yamlblue}{false}\\
+                \bigskip
+                \quad\quad\quad\yaml{yamlblue}{min_picture_neighbors}\yaml{darkgray}{: 2}\\
+                \quad\quad\yaml{yamlblue}{ImageQualityQuery}\yaml{darkgray}{:}\\
+                \quad\quad\quad\yaml{yamlblue}{quality_criteria}\yaml{darkgray}{:}\\
+                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_pixels"}\yaml{darkgray}{,} \yaml{yamlorange}{"np.count_nonzero(image) > 2"}\yaml{yamlyellow}{]}\\
+                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_charge"}\yaml{darkgray}{,} \yaml{yamlorange}{"image.sum() > 50"}\yaml{yamlyellow}{]}
+            };
+        \fi
+        \draw [to path={-| (\tikztotarget)}] (BC) to (7.8,0);
+        \draw [->, >=latex, to path={-- (\tikztotarget)}] (7.8,0) to (9,0);
+    }
+
+    \uncover<4->{
+    \node [draw, circle, minimum size=1] (C) at (6,0) {\texttt{ctapipe-merge}};
+    \draw [->, >=latex, to path={-- (\tikztotarget)}] (B) edge (C);
+    }
+
+    \uncover<5->{
+    \fill [color=tublue, fill opacity=0.3] (7.7,3) rectangle (19, -3);
+    \node [draw, circle, minimum size=1, align=center] (D) at (9,0) {Processing\\of\\Telescope-\\Level Data};
+    \draw [->, >=latex, to path={-- (\tikztotarget)}] (C) edge (D);
+    }
+
+    \uncover<6->{
+    \node [draw, circle, minimum size=1] (E1) at (12,2) {dl1 plots};
+    \node [draw, circle, minimum size=1, align=center] (E2) at (12,0) {Angular\\Resolution\\\&\\Separation};
+    \node [draw, circle, minimum size=1] (E3) at (12,-2) {Metrics};
+
+    \draw [->, >=latex, to path={|- (\tikztotarget)}] (D) edge (E1);
+    \draw [->, >=latex, to path={-- (\tikztotarget)}] (D) edge (E2);
+    \draw [->, >=latex, to path={|- (\tikztotarget)}] (D) edge (E3);
+    }
+
+    \uncover<7->{
+    \node [draw, circle, minimum size=1, align=center] (F) at (15,0) {Effective\\Area};
+    \draw [->, >=latex, to path={-- (\tikztotarget)}] (E2) edge (F);
+    }
+
+    \uncover<8->{
+    \node [draw, circle, minimum size=1, align=center] (G) at (18,0) {Results/\\Plots};
+    \draw [->, >=latex, to path={-- (\tikztotarget)}] (F) edge (G);
+
+    \coordinate (FG) at (16.5,0) {};
+    \draw [to path={-| (\tikztotarget)}] (E1) to (FG);
+    \draw [to path={-| (\tikztotarget)}] (E3) to (FG);
+    }
+\end{tikzpicture}

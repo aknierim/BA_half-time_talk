@@ -1,0 +1,17 @@
+\yaml{yamlblue}{ImageProcessor}\texttt{:}\\
+\quad\yaml{yamlblue}{image_cleaner_type}\texttt{:} \yaml{yamlblue}{MARSImageCleaner}\\
+\bigskip
+\quad\quad\yaml{yamlblue}{MARSImageCleaner}\texttt{:}\\
+\quad\quad\quad\yaml{yamlblue}{picture_threshold_pe}\texttt{:}\\
+\quad\quad\quad\quad\texttt{-} \yaml{yamlyellow}{[}\texttt{type,} \yaml{yamlorange}{"LST*"}\texttt{, 8.5}\yaml{yamlyellow}{]}\\
+\quad\quad\quad\quad\texttt{-} \yaml{yamlyellow}{[}\texttt{type,} \yaml{yamlorange}{"MST*NectarCam"}\texttt{, 9.0}\yaml{yamlyellow}{]}\\
+\quad\quad\quad\yaml{yamlblue}{boundary_threshold_pe:}\\
+\quad\quad\quad\quad\texttt{-} \yaml{yamlyellow}{[}\texttt{type,} \yaml{yamlorange}{"LST*"}\texttt{, 4.75}\yaml{yamlyellow}{]}\\
+\quad\quad\quad\quad\texttt{-} \yaml{yamlyellow}{[}\texttt{type,} \yaml{yamlorange}{"MST*NectarCam"}\texttt{, 4.5}\yaml{yamlyellow}{]}\\
+\quad\quad\quad\yaml{yamlblue}{keep_isolated_pixels}\texttt{:} \yaml{yamlblue}{false}\\
+\quad\quad\quad\yaml{yamlblue}{min_picture_neighbors}\texttt{: 2}\\
+\bigskip
+\quad\yaml{yamlblue}{ImageQualityQuery}\texttt{:}\\
+\quad\quad\yaml{yamlblue}{quality_criteria}\texttt{:}\\
+\quad\quad\quad\texttt{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_pixels"}\texttt{,} \yaml{yamlorange}{"np.count_nonzero(image) > 2"}\yaml{yamlyellow}{]}\\
+\quad\quad\quad\texttt{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_charge"}\texttt{,} \yaml{yamlorange}{"image.sum() > 50"}\yaml{yamlyellow}{]}
