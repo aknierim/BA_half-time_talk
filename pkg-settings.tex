@@ -42,6 +42,16 @@
 % reference source
 \addbibresource{\jobname.bib}
 
+% remove footnote marks
+\makeatletter
+\def\@makefnmark{}
+\makeatletter
+
+\setbeamertemplate{footnote}{%
+  \parindent 1em\noindent
+  \raggedright
+  \insertfootnotetext\par
+}
 
 % This adds a circle with a picture of your choice in it.
 % Usage:
