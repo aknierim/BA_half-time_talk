@@ -5,9 +5,11 @@
     \ifdefined\darktheme
         \fill [color=tulightgreen, fill opacity=0.7] (1.5,3) rectangle (7.5, -3);
         \node at (4.5,2) [above] {\includegraphics[width=2cm]{logos/ctapipe_logo_light.pdf}};
+        \node at (4.5,2) {\code{white}{v0.15.1}}; %v0.15.1.dev166+gf26107f
     \else
         \fill [color=tugreen, fill opacity=0.3] (1.5,3) rectangle (7.5, -3);
         \node at (4.5,2) [above] {\includegraphics[width=2cm]{logos/ctapipe_logo.png}};
+        \node at (4.5,2) [below] {\code{darkgray}{v0.15.1}};
     \fi
     \node [draw, circle, minimum size=1] (B) at (3,0) {\texttt{ctapipe-process}};
     \draw [->, >=latex, to path={-- (\tikztotarget)}] (A) edge (B);
@@ -21,43 +23,43 @@
     \only<3>{
         \ifdefined\darktheme
             \node [draw, color=darkmode, align=left] at (13.5,-0.11) {
-                \yaml{yamlblue}{ImageProcessor}\yaml{white}{:}\\
+                \code{yamlblue}{ImageProcessor}\code{white}{:}\\
                 \bigskip
-                \quad\yaml{yamlblue}{image_cleaner_type}\yaml{white}{:} \yaml{yamlblue}{MARSImageCleaner}\\
-                \quad\quad\yaml{yamlblue}{MARSImageCleaner}\yaml{white}{:}\\
-                \quad\quad\quad\yaml{yamlblue}{picture_threshold_pe}\yaml{white}{:}\\
-                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{white}{type,} \yaml{yamlorange}{"LST*"}\yaml{white}{, 8.5}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{white}{type,} \yaml{yamlorange}{"MST*NectarCam"}\yaml{white}{, 9.0}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\yaml{yamlblue}{boundary_threshold_pe}\yaml{white}{:}\\
-                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{white}{type,} \yaml{yamlorange}{"LST*"}\yaml{white}{, 4.75}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{white}{type,} \yaml{yamlorange}{"MST*NectarCam"}\yaml{white}{, 4.5}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\yaml{yamlblue}{keep_isolated_pixels}\yaml{white}{:} \yaml{yamlblue}{false}\\
+                \quad\code{yamlblue}{image_cleaner_type}\code{white}{:} \code{yamlblue}{MARSImageCleaner}\\
+                \quad\quad\code{yamlblue}{MARSImageCleaner}\code{white}{:}\\
+                \quad\quad\quad\code{yamlblue}{picture_threshold_pe}\code{white}{:}\\
+                \quad\quad\quad\quad\code{white}{-} \code{yamlyellow}{[}\code{white}{type,} \code{yamlorange}{"LST*"}\code{white}{, 8.5}\code{yamlyellow}{]}\\
+                \quad\quad\quad\quad\code{white}{-} \code{yamlyellow}{[}\code{white}{type,} \code{yamlorange}{"MST*NectarCam"}\code{white}{, 9.0}\code{yamlyellow}{]}\\
+                \quad\quad\quad\code{yamlblue}{boundary_threshold_pe}\code{white}{:}\\
+                \quad\quad\quad\quad\code{white}{-} \code{yamlyellow}{[}\code{white}{type,} \code{yamlorange}{"LST*"}\code{white}{, 4.75}\code{yamlyellow}{]}\\
+                \quad\quad\quad\quad\code{white}{-} \code{yamlyellow}{[}\code{white}{type,} \code{yamlorange}{"MST*NectarCam"}\code{white}{, 4.5}\code{yamlyellow}{]}\\
+                \quad\quad\quad\code{yamlblue}{keep_isolated_pixels}\code{white}{:} \code{yamlblue}{false}\\
                 \bigskip
-                \quad\quad\quad\yaml{yamlblue}{min_picture_neighbors}\yaml{white}{: 2}\\
-                \quad\quad\yaml{yamlblue}{ImageQualityQuery}\yaml{white}{:}\\
-                \quad\quad\quad\yaml{yamlblue}{quality_criteria}\yaml{white}{:}\\
-                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_pixels"}\yaml{white}{,} \yaml{yamlorange}{"np.count_nonzero(image) > 2"}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\quad\yaml{white}{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_charge"}\yaml{white}{,} \yaml{yamlorange}{"image.sum() > 50"}\yaml{yamlyellow}{]}
+                \quad\quad\quad\code{yamlblue}{min_picture_neighbors}\code{white}{: 2}\\
+                \quad\quad\code{yamlblue}{ImageQualityQuery}\code{white}{:}\\
+                \quad\quad\quad\code{yamlblue}{quality_criteria}\code{white}{:}\\
+                \quad\quad\quad\quad\code{white}{-} \code{yamlyellow}{[}\code{yamlorange}{"enough_pixels"}\code{white}{,} \code{yamlorange}{"np.count_nonzero(image) > 2"}\code{yamlyellow}{]}\\
+                \quad\quad\quad\quad\code{white}{-} \code{yamlyellow}{[}\code{yamlorange}{"enough_charge"}\code{white}{,} \code{yamlorange}{"image.sum() > 50"}\code{yamlyellow}{]}
             };
         \else
             \node [draw, color=white, align=left] at (13.5,-0.11) {
-                \yaml{yamlblue}{ImageProcessor}\yaml{darkgray}{:}\\
+                \code{yamlblue}{ImageProcessor}\code{darkgray}{:}\\
                 \bigskip
-                \quad\yaml{yamlblue}{image_cleaner_type}\yaml{darkgray}{:} \yaml{yamlblue}{MARSImageCleaner}\\
-                \quad\quad\yaml{yamlblue}{MARSImageCleaner}\yaml{darkgray}{:}\\
-                \quad\quad\quad\yaml{yamlblue}{picture_threshold_pe}\yaml{darkgray}{:}\\
-                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{darkgray}{type,} \yaml{yamlorange}{"LST*"}\yaml{darkgray}{, 8.5}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{darkgray}{type,} \yaml{yamlorange}{"MST*NectarCam"}\yaml{darkgray}{, 9.0}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\yaml{yamlblue}{boundary_threshold_pe}\yaml{darkgray}{:}\\
-                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{darkgray}{type,} \yaml{yamlorange}{"LST*"}\yaml{darkgray}{, 4.75}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{darkgray}{type,} \yaml{yamlorange}{"MST*NectarCam"}\yaml{darkgray}{, 4.5}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\yaml{yamlblue}{keep_isolated_pixels}\yaml{darkgray}{:} \yaml{yamlblue}{false}\\
+                \quad\code{yamlblue}{image_cleaner_type}\code{darkgray}{:} \code{yamlblue}{MARSImageCleaner}\\
+                \quad\quad\code{yamlblue}{MARSImageCleaner}\code{darkgray}{:}\\
+                \quad\quad\quad\code{yamlblue}{picture_threshold_pe}\code{darkgray}{:}\\
+                \quad\quad\quad\quad\code{darkgray}{-} \code{yamlyellow}{[}\code{darkgray}{type,} \code{yamlorange}{"LST*"}\code{darkgray}{, 8.5}\code{yamlyellow}{]}\\
+                \quad\quad\quad\quad\code{darkgray}{-} \code{yamlyellow}{[}\code{darkgray}{type,} \code{yamlorange}{"MST*NectarCam"}\code{darkgray}{, 9.0}\code{yamlyellow}{]}\\
+                \quad\quad\quad\code{yamlblue}{boundary_threshold_pe}\code{darkgray}{:}\\
+                \quad\quad\quad\quad\code{darkgray}{-} \code{yamlyellow}{[}\code{darkgray}{type,} \code{yamlorange}{"LST*"}\code{darkgray}{, 4.75}\code{yamlyellow}{]}\\
+                \quad\quad\quad\quad\code{darkgray}{-} \code{yamlyellow}{[}\code{darkgray}{type,} \code{yamlorange}{"MST*NectarCam"}\code{darkgray}{, 4.5}\code{yamlyellow}{]}\\
+                \quad\quad\quad\code{yamlblue}{keep_isolated_pixels}\code{darkgray}{:} \code{yamlblue}{false}\\
                 \bigskip
-                \quad\quad\quad\yaml{yamlblue}{min_picture_neighbors}\yaml{darkgray}{: 2}\\
-                \quad\quad\yaml{yamlblue}{ImageQualityQuery}\yaml{darkgray}{:}\\
-                \quad\quad\quad\yaml{yamlblue}{quality_criteria}\yaml{darkgray}{:}\\
-                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_pixels"}\yaml{darkgray}{,} \yaml{yamlorange}{"np.count_nonzero(image) > 2"}\yaml{yamlyellow}{]}\\
-                \quad\quad\quad\quad\yaml{darkgray}{-} \yaml{yamlyellow}{[}\yaml{yamlorange}{"enough_charge"}\yaml{darkgray}{,} \yaml{yamlorange}{"image.sum() > 50"}\yaml{yamlyellow}{]}
+                \quad\quad\quad\code{yamlblue}{min_picture_neighbors}\code{darkgray}{: 2}\\
+                \quad\quad\code{yamlblue}{ImageQualityQuery}\code{darkgray}{:}\\
+                \quad\quad\quad\code{yamlblue}{quality_criteria}\code{darkgray}{:}\\
+                \quad\quad\quad\quad\code{darkgray}{-} \code{yamlyellow}{[}\code{yamlorange}{"enough_pixels"}\code{darkgray}{,} \code{yamlorange}{"np.count_nonzero(image) > 2"}\code{yamlyellow}{]}\\
+                \quad\quad\quad\quad\code{darkgray}{-} \code{yamlyellow}{[}\code{yamlorange}{"enough_charge"}\code{darkgray}{,} \code{yamlorange}{"image.sum() > 50"}\code{yamlyellow}{]}
             };
         \fi
         \draw [to path={-| (\tikztotarget)}] (BC) to (7.8,0);

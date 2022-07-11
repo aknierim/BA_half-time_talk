@@ -5,7 +5,7 @@
 \RequirePackage{ifluatex}
 \RequirePackage{ifxetex}
 \RequirePackage{calc}
-\hypersetup{colorlinks=true, linkcolor=darkgray, urlcolor=tudark}
+\hypersetup{colorlinks=true, linkcolor=darkgray, urlcolor=lightgray}
 
 
 %% colors
@@ -27,6 +27,9 @@
 \xdefinecolor{yamlorange}{HTML}{cf7a30}
 \xdefinecolor{yamlpink}{HTML}{ff00ff}
 \xdefinecolor{yamlyellow}{HTML}{ffd800}
+
+\colorlet{lightgray}{darkgray!70!white}
+\colorlet{lightergray}{darkgray!50!white}
 
 
 % a thin and clean progress bar that fits well within the overall asthetic of
@@ -104,7 +107,7 @@
   \setmonofont{Fira Mono}[Scale=MatchLowercase]
   % if you don't like serif font for equations, use 'Fira Math' instead
   % uncomment [Scale=MatchLowercase] below, if you're using 'Fira Math'
-  \setmathfont{Latin Modern Math} %[Scale=MatchLowercase]
+  \setmathfont{Fira Math}[Scale=MatchLowercase]
 \else
   \usepackage{FiraSans}
 \fi
@@ -293,6 +296,13 @@
 \setbeamercolor{section number in toc}{fg=tugreen, bg=white}
 \setbeamercolor{section in toc}{fg=darkgray, bg=white}
 
+\setbeamercolor{bibliography entry author}{fg=darkgray!85!black}
+\setbeamercolor{bibliography entry title}{fg=lightgray}
+\setbeamercolor{bibliography entry year}{fg=lightgray}
+\setbeamercolor{bibliography entry page}{fg=lightgray}
+\setbeamercolor{bibliography entry location}{fg=lightgray}
+\setbeamercolor{bibliography entry note}{fg=lightgray}
+
 
 % comment this out if you dont want to use title graphic behind your title and subtitle:
 % Defining a new coordinate system for the page, see
@@ -327,7 +337,7 @@
 % --------------------------
 
 
-\titlegraphic{\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=15pt] at (page cs: 0.6, 0){\includegraphics[width=0.41\paperwidth,height=0.95\paperheight]{images/contours_lst.pdf}};}
+\titlegraphic{\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=15pt] at (page cs: 0.6, 0){\includegraphics[width=0.41\paperwidth,height=0.95\paperheight]{images/contours_lst.pdf}};}
 \makeatletter
 
 \mode<all>

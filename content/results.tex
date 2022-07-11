@@ -57,7 +57,7 @@
   \end{minipage}
 \end{frame}
 
-\subsection{ROC Curves and Metrics}
+\subsection{ROC Curves}
 \begin{frame}{ROC curves and precision and recall curves}
   \ifdefined\darktheme
     \centering
@@ -86,5 +86,36 @@
     \centering
     \includegraphics[width=\textwidth]{plots/surv_pixels_light.png}
   \fi
+\end{frame}
+
+\subsection{Metrics}
+\begin{frame}{Metrics}
+  \only<1>{
+    \ifdefined\darktheme
+      \centering
+      \includegraphics[width=\textwidth]{plots/metrics/metrics_2.0_1.0_dark.png}
+    \else
+      \centering
+      \includegraphics[width=\textwidth]{plots/metrics/metrics_2.0_1.0_light.png}
+    \fi
+  }
+  \only<2>{
+    \ifdefined\darktheme
+      \centering
+      \includegraphics[width=\textwidth]{plots/metrics/metrics_6.0_3.0_dark.png}
+    \else
+      \centering
+      \includegraphics[width=\textwidth]{plots/metrics/metrics_6.0_3.0_light.png}
+    \fi
+  }
+  \only<3>{
+    \ifdefined\darktheme
+      \centering
+      \includegraphics[width=\textwidth]{plots/metrics/metrics_10.0_5.0_dark.png}
+    \else
+      \centering
+      \includegraphics[width=\textwidth]{plots/metrics/metrics_10.0_5.0_light.png}
+    \fi
+  }
 \end{frame}
 

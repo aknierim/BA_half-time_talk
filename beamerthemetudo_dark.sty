@@ -5,8 +5,7 @@
 \RequirePackage{ifluatex}
 \RequirePackage{ifxetex}
 \RequirePackage{calc}
-\hypersetup{colorlinks=true, linkcolor=white, urlcolor=tudark}
-
+\hypersetup{colorlinks=true, linkcolor=white, urlcolor=white!70!black}
 
 %% colors
 \xdefinecolor{tugreen}{RGB}{132, 184, 25}       % 0
@@ -29,6 +28,8 @@
 \xdefinecolor{yamlpink}{HTML}{ff00ff}
 \xdefinecolor{yamlyellow}{HTML}{ffd800}
 
+\colorlet{lightgray}{darkgray!70!white}
+\colorlet{lightergray}{darkgray!50!white}
 
 % a thin and clean progress bar that fits well within the overall asthetic of
 % of this theme. Adapted from http://tex.stackexchange.com/a/59749 (Gonzalo Medina)
@@ -105,7 +106,7 @@
   \setmonofont{Fira Mono}[Scale=MatchLowercase]
   % if you don't like serif font for equations, use 'Fira Math' instead
   % uncomment [Scale=MatchLowercase] below, if you're using 'Fira Math'
-  \setmathfont{Latin Modern Math} %[Scale=MatchLowercase]
+  \setmathfont{Fira Math}[Scale=MatchLowercase]
 \else
   \usepackage{FiraSans}
 \fi
@@ -295,14 +296,16 @@
 \setbeamercolor{section number in toc}{fg=tugreen, bg=darkmode}
 \setbeamercolor{section in toc}{fg=white, bg=darkmode}
 
-\setbeamercolor{bibliography entry author}{fg=white}
-\setbeamercolor{bibliography entry title}{fg=white}
-\setbeamercolor{bibliography entry year}{fg=white}
-\setbeamercolor{bibliography entry page}{fg=white}
-\setbeamercolor{bibliography entry location}{fg=white}
+\setbeamercolor{bibliography entry author}{fg=white!85!black}
+\setbeamercolor{bibliography entry title}{fg=white!70!black}
+\setbeamercolor{bibliography entry year}{fg=white!70!black}
+\setbeamercolor{bibliography entry page}{fg=white!70!black}
+\setbeamercolor{bibliography entry location}{fg=white!70!black}
+\setbeamercolor{bibliography entry note}{fg=white!70!black}
 
 
-% comment this out if you dont want to use title graphic behind your title and subtitle:
+% comment this out if you dont want to use a title graphic behind your title and subtitle
+% with a custom coordinate system:
 % Defining a new coordinate system for the page, see
 % https://tex.stackexchange.com/questions/89588/positioning-relative-to-page-in-tikz/89592#89592
 \makeatletter
@@ -335,7 +338,7 @@
 % --------------------------
 
 
-\titlegraphic{\tikz[remember picture,overlay] \node[opacity=0.3,inner sep=15pt] at (page cs: 0.6, 0){\includegraphics[width=0.41\paperwidth,height=0.95\paperheight]{images/contours_lst_light.pdf}};}
+\titlegraphic{\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=15pt] at (page cs: 0.6, 0){\includegraphics[width=0.41\paperwidth,height=0.95\paperheight]{images/contours_lst_light.pdf}};}
 \makeatletter
 
 

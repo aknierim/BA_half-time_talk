@@ -23,6 +23,8 @@
 \setmathfont{XITS Math}[range={scr, bfscr}]
 \setmathfont{XITS Math}[range={cal, bfcal}, StylisticSet=1]
 
+
+% bibliography settings
 \begin{filecontents*}{\jobname.bib}
 @mastersthesis{hackfeld,
   author      = {Hackfeld, J.},
@@ -68,6 +70,6 @@
 \renewcommand{\vec}[1]{\mathbf{#1}}
 
 
-\newcommand{\yaml}[2]{%
+\newcommand{\code}[2]{%
   \texttt{\textcolor{#1}{\detokenize{#2}}}%
 }

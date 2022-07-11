@@ -1,0 +1,97 @@
+
+\begin{frame}{Outlook}
+    \begin{minipage}{0.7\textwidth}
+        \begin{itemize}
+            \ifdefined\darktheme
+                \item Compare cleaners for other parameters than the \code{white!70!black}{picture} and \code{white!70!black}{boundary thresholds}
+            \else
+                \item Compare cleaners for other parameters than the \code{lightgray}{picture} and \code{lightgray}{boundary thresholds}
+            \fi
+            \begin{itemize}
+                \ifdefined\darktheme
+                    \item [\rightarrow] Use \code{white!70!black}{sklearn.model_selection.Parametergrid} to find the best parameters for each cleaner
+                \else
+                    \item [\rightarrow] Use \code{lightgray}{sklearn.model_selection.Parametergrid} to find the best parameters for each cleaner
+                \fi
+            \end{itemize}
+            \ifdefined\darktheme
+                \item Instead of letting the \code{white!70!black}{picture threshold} vary from \(\num{0}\) to \(\num{10}\), use quantiles
+                \item Vary the \code{white!70!black}{boundary thresholds} as \(\num{0.25}\), \(\num{0.33}\), \(\num{0.5}\) and \(\num{0.75}\) of the \code{white!70!black}{picture threshold}
+            \else
+                \item Instead of letting the \code{lightgray}{picture threshold} vary from \(\num{0}\) to \(\num{10}\), use quantiles
+                \item Vary the \code{lightgray}{boundary thresholds} as \(\num{0.25}\), \(\num{0.33}\), \(\num{0.5}\) and \(\num{0.75}\) of the \code{lightgray}{picture threshold}
+            \fi
+        \end{itemize}
+    \end{minipage}
+    \begin{minipage}{0.28\textwidth}
+        \includegraphics[width=\textwidth]{logos/sklearn.png}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Problem}
+    \begin{itemize}
+        \item Run time and number of datasets increase with the number of parameters
+        \begin{itemize}
+            \ifdefined\darktheme
+                \item [\rightarrow] For \code{white!70!black}{TailcutsImageCleaner} and \code{white!70!black}{MarsImageCleaner} alone, this results in \(\num{32}\) possible combinations of parameters:
+            \else
+                \item [\rightarrow] For \code{lightgray}{TailcutsImageCleaner} and \code{lightgray}{MarsImageCleaner} alone, this results in \(\num{32}\) possible combinations of parameters:
+            \fi
+            \begin{center}
+                \begin{tabular}{l}
+                    \code{yamlblue}{params} \texttt{=} \textcolor{yamlyellow}{\{}\\
+                    \qquad\code{yamlorange}{"picture_quantiles"}\texttt{:} \code{yamlyellow}{(}\texttt{0.9, 0.99, 0.995, 0.999}\code{yamlyellow}{)}\texttt{,}\\
+                    \qquad\code{yamlorange}{"boundary_threshold_ratio"}\texttt{:} \code{yamlyellow}{(}\texttt{0.25, 0.33, 0.5, 0.75}\code{yamlyellow}{)}\texttt{,}\\
+                    \qquad\code{yamlorange}{"min_number_picture_neighbors"}\texttt{:} \code{yamlyellow}{(}\texttt{1, 2}\code{yamlyellow}{)}\\
+                    \qquad\textcolor{yamlyellow}{\}}
+                \end{tabular}
+            \end{center}
+            \ifdefined\darktheme
+                \item [\rightarrow] Add only two parameters for \code{white!70!black}{FACTImageCleaner} and this number increases to 64 possible combinations
+            \else
+                \item [\rightarrow] Add only two parameters for \code{lightgray}{FACTImageCleaner} and this number increases to 64 possible combinations
+            \fi
+            \begin{center}
+                \begin{tabular}{l}
+                    \code{yamlblue}{fact_params}\code{yamlyellow}{[}\code{yamlorange}{"time_limit"}\code{yamlyellow}{]} \texttt{=} \code{yamlyellow}{(}\texttt{2, 5}\code{yamlyellow}{)}
+                \end{tabular}
+            \end{center}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Summary}
+    \begin{minipage}[T]{0.48\textwidth}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \ifdefined\darktheme
+            \item So far, a \code{white!70!black}{picture threshold} of \(\approx\num{6.0}\) seems to be the best choice w.r.t. the metrics
+        \else
+            \item So far, a \code{lightgray}{picture threshold} of \(\approx\num{6.0}\) seems to be the best choice w.r.t. the metrics
+        \fi
+        \begin{itemize}
+            \item [\rightarrow] Has to be tested again for combinations with other parameters
+        \end{itemize}
+        \ifdefined\darktheme
+            \item Testing other ratios than \(\num{0.5}\) for the \code{white!70!black}{boundary thresholds} seems to be a rational next step
+            \item With \code{white!70!black}{sklearn}s \code{white!70!black}{ParameterGrid}, it is hopefully possible to find the best parameters for each cleaner
+        \else
+            \item Testing other ratios than \(\num{0.5}\) for the \code{lightgray}{boundary thresholds} seems to be a rational next step
+            \item More combinations of parameters should help finding the optimal parameters for each cleaner
+        \fi
+    \end{itemize}
+    \end{minipage}
+    \begin{minipage}{0.48\textwidth}
+        \begin{tikzpicture}
+        \ifdefined\darktheme
+            \roundpic[xshift=0cm,yshift=0, fill=darkmode]{7.8cm}{8cm}{plots/metrics_double_dark.pdf}{5}{2.3}
+            \roundpic[xshift=-.1cm,yshift=-.2cm, fill=darkmode]{3.8cm}{3cm}{plots/simple_roc_dark.png}{0}{3.5}
+            \roundpic[xshift=0cm,yshift=0, fill=darkmode]{3cm}{2.5cm}{plots/ang_res/ang_res_6.0_3.0_dark.png}{2}{1}
+        \else
+            \roundpic[xshift=0cm,yshift=0, fill=white]{7.8cm}{8cm}{plots/metrics_double_light.pdf}{5}{2.3}
+            \roundpic[xshift=-.1cm,yshift=-.2cm, fill=white]{3.8cm}{3cm}{plots/simple_roc_light.png}{0}{3.5}
+            \roundpic[xshift=0cm,yshift=0, fill=white]{3cm}{2.5cm}{plots/ang_res/ang_res_6.0_3.0_light.png}{2}{1}
+        \fi
+        \end{tikzpicture}
+    \end{minipage}
+\end{frame}
