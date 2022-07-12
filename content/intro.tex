@@ -18,7 +18,11 @@
     \begin{center}
       \includegraphics[width=\textwidth]{graphics/cta_north_render.jpg}
       \includegraphics[width=\textwidth]{graphics/cta_south_render.jpg}
-      \footcite{perezdiaz}
+      \ifdefined\darktheme
+        \footcite[\textcolor{white!85!black}{Image Credit:}][]{perezdiaz}
+      \else
+        \footcite[\textcolor{darkgray!85!black}{Image Credit:}][]{perezdiaz}
+      \fi
     \end{center}
   \end{minipage}
 \end{frame}
@@ -29,10 +33,10 @@
   \centering
   \ifdefined\darktheme
     \includegraphics[width=0.7\textwidth]{graphics/ctapipe_darktheme.png}
-    \footcite{hackfeld}
+    \footcite[\textcolor{white!85!black}{Adapted from}][]{hackfeld}
   \else
     \includegraphics[width=0.7\textwidth]{graphics/ctapipe.png}
-    \footcite{hackfeld}
+    \footcite[\textcolor{darkgray!85!black}{Image Credit:}][]{hackfeld}
   \fi
 \end{frame}
 
