@@ -9,9 +9,9 @@
             \fi
             \begin{itemize}
                 \ifdefined\darktheme
-                    \item [\rightarrow] Use \code{white!70!black}{sklearn.model_selection.Parametergrid} to find the best parameters for each cleaner
+                    \item [\rightarrow] Use \code{white!70!black}{sklearn.model_selection.ParameterGrid} to find the best parameters for each cleaner
                 \else
-                    \item [\rightarrow] Use \code{lightgray}{sklearn.model_selection.Parametergrid} to find the best parameters for each cleaner
+                    \item [\rightarrow] Use \code{lightgray}{sklearn.model_selection.ParameterGrid} to find the best parameters for each cleaner
                 \fi
             \end{itemize}
             \ifdefined\darktheme
@@ -47,9 +47,9 @@
                 \end{tabular}
             \end{center}
             \ifdefined\darktheme
-                \item [\rightarrow] Add only two parameters for \code{white!70!black}{FACTImageCleaner} and this number increases to 64 possible combinations
+                \item [\rightarrow] Add only two parameters for \code{white!70!black}{FACTImageCleaner} and this number increases to \(\num{64}\) possible combinations
             \else
-                \item [\rightarrow] Add only two parameters for \code{lightgray}{FACTImageCleaner} and this number increases to 64 possible combinations
+                \item [\rightarrow] Add only two parameters for \code{lightgray}{FACTImageCleaner} and this number increases to \(\num{64}\) possible combinations
             \fi
             \begin{center}
                 \begin{tabular}{l}
@@ -69,29 +69,57 @@
         \else
             \item So far, a \code{lightgray}{picture threshold} of \(\approx\num{6.0}\) seems to be the best choice w.r.t. the metrics
         \fi
-        \begin{itemize}
-            \item [\rightarrow] Has to be tested again for combinations with other parameters
-        \end{itemize}
+        % \begin{itemize}
+        %     \item [\rightarrow] Has to be tested again for combinations with other parameters
+        % \end{itemize}
         \ifdefined\darktheme
-            \item Testing other ratios than \(\num{0.5}\) for the \code{white!70!black}{boundary thresholds} seems to be a rational next step
-            \item Testing combinations of the other available parameters should help finding the optimal parameters for each cleaner
+                \item Until now only the \code{white!70!black}{picture threshold} has been tested (with a \code{white!70!black}{boundary threshold ratio} of \(\num{0.5}\))
         \else
-            \item Testing other ratios than \(\num{0.5}\) for the \code{lightgray}{boundary thresholds} seems to be a rational next step
-            \item Testing combinations of the other available parameters should help finding the optimal parameters for each cleaner
+                \item Until now only the \code{lightgray}{picture threshold} has been tested (with a \code{lightgray}{boundary threshold ratio} of \(\num{0.5}\))
         \fi
+        \begin{itemize}
+            \item [\rightarrow] Testing the other available parameters should help in finding optimal parameters for each cleaner
+        \end{itemize}
+        \item \code{white!70!black}{MARSImageCleaner} seems to have a slight advantage over the other cleaners (with the above parameters)
     \end{itemize}
     \end{minipage}
     \begin{minipage}{0.48\textwidth}
         \begin{tikzpicture}
         \ifdefined\darktheme
-            \roundpic[xshift=0cm,yshift=0, fill=darkmode]{7.8cm}{8cm}{plots/metrics_double_dark.pdf}{5}{2.3}
-            \roundpic[xshift=-.1cm,yshift=-.2cm, fill=darkmode]{3.8cm}{3cm}{plots/simple_roc_dark.png}{0}{3.5}
-            \roundpic[xshift=0cm,yshift=0, fill=darkmode]{3cm}{2.5cm}{plots/ang_res/ang_res_6.0_3.0_dark.png}{2}{1}
+            \roundpic[xshift=0cm,yshift=0, fill=darkmode]{7.8cm}{8cm}{plots/metrics_double_dark.pdf}{5}{2.3}{metrics_bar}
+            \roundpic[xshift=-.1cm,yshift=-.2cm, fill=darkmode]{3.8cm}{3cm}{plots/simple_roc_dark.png}{0}{3.5}{roc}
+            \roundpic[xshift=0cm,yshift=0, fill=darkmode]{3cm}{2.5cm}{plots/ang_res/ang_res_6.0_3.0_dark.png}{2}{1}{ang_res}
         \else
-            \roundpic[xshift=0cm,yshift=0, fill=white]{7.8cm}{8cm}{plots/metrics_double_light.pdf}{5}{2.3}
-            \roundpic[xshift=-.1cm,yshift=-.2cm, fill=white]{3.8cm}{3cm}{plots/simple_roc_light.png}{0}{3.5}
-            \roundpic[xshift=0cm,yshift=0, fill=white]{3cm}{2.5cm}{plots/ang_res/ang_res_6.0_3.0_light.png}{2}{1}
+            \roundpic[xshift=0cm,yshift=0, fill=white]{7.8cm}{8cm}{plots/metrics_double_light.pdf}{5}{2.3}{}
+            \roundpic[xshift=-.1cm,yshift=-.2cm, fill=white]{3.8cm}{3cm}{plots/simple_roc_light.png}{0}{3.5}{}
+            \roundpic[xshift=0cm,yshift=0, fill=white]{3cm}{2.5cm}{plots/ang_res/ang_res_6.0_3.0_light.png}{2}{1}{}
         \fi
         \end{tikzpicture}
     \end{minipage}
 \end{frame}
+
+% \backupbegin
+\begin{frame}{Backup}
+    \begin{itemize}
+        \item Quantiles plots for LST and MST
+    \end{itemize}
+    \centering
+    \ifdefined\darktheme
+        \includegraphics[width=0.65\textwidth]{plots/noise_study/quantiles_dark.png}
+    \else
+        \includegraphics[width=0.65\textwidth]{plots/noise_study/quantiles_light.png}
+    \fi
+\end{frame}
+\begin{frame}{Backup}
+    \begin{itemize}
+        \item Surviving Signal / True Photons and Surviving Photons / True Photons
+    \end{itemize}
+    \centering
+    \ifdefined\darktheme
+        \includegraphics[width=\textwidth]{plots/survsignal_dark.png}
+    \else
+        \includegraphics[width=\textwidth]{plots/survsignal_dark.png}
+    \fi
+\end{frame}
+
+% \backupend

@@ -1,5 +1,5 @@
-\subsection{ROC Curves}
-\begin{frame}{ROC Curves}
+\subsection{ROC Curves and Metrics}
+\begin{frame}[label=roc]{ROC Curves}
   \ifdefined\darktheme
     \centering
     \includegraphics[width=\textwidth]{plots/roc_zoom_dark.png}
@@ -8,29 +8,37 @@
     \includegraphics[width=\textwidth]{plots/roc_zoom_light.png}
   \fi
 \end{frame}
-\begin{frame}{Picture Thresholds}
-  \ifdefined\darktheme
-    \centering
-    \includegraphics[width=\textwidth]{plots/pic_thresh_roc_dark.png}
-  \else
-    \centering
-    \includegraphics[width=\textwidth]{plots/pic_thresh_roc_light.png}
-  \fi
+\begin{frame}{ROC Curves with Picture Thresholds}
+  \only<1>{
+    \ifdefined\darktheme
+      \centering
+      \includegraphics[width=\textwidth]{plots/pic_thresh_roc_dark_tail_mars.png}
+    \else
+      \centering
+      \includegraphics[width=\textwidth]{plots/pic_thresh_roc_light.png}
+    \fi
+  }
+  \only<2>{
+    \ifdefined\darktheme
+      \centering
+      \includegraphics[width=\textwidth]{plots/pic_thresh_roc_dark_tail_fact.png}
+    \else
+      \centering
+      \includegraphics[width=\textwidth]{plots/pic_thresh_roc_light.png}
+    \fi
+  }
+  \only<3>{
+    \ifdefined\darktheme
+      \centering
+      \includegraphics[width=\textwidth]{plots/pic_thresh_roc_dark_tail_tcc.png}
+    \else
+      \centering
+      \includegraphics[width=\textwidth]{plots/pic_thresh_roc_light.png}
+    \fi
+  }
 \end{frame}
 
-\subsection{Ratio of Surviving Pixels}
-\begin{frame}{Ratio of Surviving Pixels}
-  \ifdefined\darktheme
-    \centering
-    \includegraphics[width=\textwidth]{plots/surv_pixels_dark.png}
-  \else
-    \centering
-    \includegraphics[width=\textwidth]{plots/surv_pixels_light.png}
-  \fi
-\end{frame}
-
-\subsection{Metrics}
-\begin{frame}{Metrics}
+\begin{frame}[label=metrics_bar]{Metrics}
   \only<1>{
     \ifdefined\darktheme
       \centering
@@ -60,8 +68,19 @@
   }
 \end{frame}
 
+\subsection{Ratio of Surviving Photons}
+\begin{frame}{Ratio of Surviving Photons}
+  \ifdefined\darktheme
+    \centering
+    \includegraphics[width=\textwidth]{plots/surv_pixels_dark.png}
+  \else
+    \centering
+    \includegraphics[width=\textwidth]{plots/surv_pixels_light.png}
+  \fi
+\end{frame}
+
 \subsection{Angular Resolution}
-\begin{frame}{Angular Resolution}
+\begin{frame}[label=ang_res]{Angular Resolution}
   \begin{minipage}{0.32\textwidth}
     \ifdefined\darktheme
       \centering
@@ -73,7 +92,7 @@
   \begin{minipage}{0.32\textwidth}
     \ifdefined\darktheme
       \centering
-      \includegraphics[width=\textwidth]{plots/ang_res/ang_res_6.0_3.0_dark.png}
+      \hypertarget{ang_res}{\includegraphics[width=\textwidth]{plots/ang_res/ang_res_6.0_3.0_dark.png}}
     \else
       \centering
       \includegraphics[width=\textwidth]{plots/ang_res/ang_res_6.0_3.0_light.png}
