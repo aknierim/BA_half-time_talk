@@ -42,7 +42,7 @@
 \newdimen\progressbar@tmpdim % auxiliary dimension
 
 \progressbar@pbwd=\paperwidth
-\newcommand\progressbar@ffn{0} % needed amount of frames for title page and table of contents slide
+\newcommand\progressbar@ffn{0}
 
 % the progress bar
 \def\progressbar@progressbar{%
@@ -127,7 +127,7 @@
     leftskip=\beamer@leftmargin,
     rightskip=1em,
   ]{headline}%
-    \includegraphics[height=\headerheight]{logos/tud_logo_light.pdf}%
+    \hyperlink{title}{\includegraphics[height=\headerheight]{logos/tud_logo_light.pdf}}%
   \end{beamercolorbox}%
   \begin{beamercolorbox}[
     wd=0.65\paperwidth,
@@ -137,7 +137,7 @@
   ]{headline}%
   \hfill
   % include a dark mode compatible version of your chair's logo or use text instead, see below
-  \includegraphics[height=\headerheight]{logos/cta_logo_light.png}\qquad\qquad\includegraphics[height=\headerheight]{logos/tu-e5_light.pdf}
+  \includegraphics[height=\headerheight]{logos/cta_logo_light.png}\qquad\qquad\hyperlink{summary}{\includegraphics[height=\headerheight]{logos/tu-e5_light.pdf}}
   % leave commented out if you would like to use logos instead of text, see above
   % \usebeamerfont{institute in head/foot}\hfill\insertshortinstitute[respectlinebreaks]
   \end{beamercolorbox}%
