@@ -110,28 +110,32 @@
     }
     \raisebox{10ex}{
     \begin{overlayarea}{0.58\textwidth}{3.5cm}
+      \only<1>{
+        \centering
+        \includegraphics[width=0.65\textwidth]{plots/cleaners/uncleaned_image.pdf}
+      }
       \only<2>{
       \begin{enumerate}%TailcutsImageCleaner
-        \item Select pixels that pass the \code{white!70!black}{picture threshold}
-        \item Add pixels that pass the \code{white!70!black}{boundary threshold}
+        \item Select pixels that pass the \code{white!70!black}{picture threshold} (this talk: \(\SI{6}{\pe}\))
+        \item Add pixels that pass the \code{white!70!black}{boundary threshold} (here: \(\SI{3}{\pe}\))
       \end{enumerate}
       }
       \only<3>{
       \begin{enumerate}%TailcutsImageCleaner
-        \item \textcolor{white!50!black}{Select pixels that pass the \code{white!35!black}{picture threshold}}
-        \item \textcolor{white!50!black}{Add pixels that pass the \code{white!35!black}{boundary threshold}}
+        \item \textcolor{white!50!black}{Select pixels that pass the \code{white!35!black}{picture threshold} (this talk: \(\SI{6}{\pe}\))}
+        \item \textcolor{white!50!black}{Add pixels that pass the \code{white!35!black}{boundary threshold} (here: \(\SI{3}{\pe}\))}
       \end{enumerate}
       }
       \only<4>{
       \begin{enumerate}%TailcutsImageCleaner
-        \item Select pixels that pass the \code{white!70!black}{picture threshold}
-        \item \textcolor{white!50!black}{Add pixels that pass the \code{white!35!black}{boundary threshold}}
+        \item Select pixels that pass the \code{white!70!black}{picture threshold} (this talk: \(\SI{6}{\pe}\))
+        \item \textcolor{white!50!black}{Add pixels that pass the \code{white!35!black}{boundary threshold} (here: \(\SI{3}{\pe}\))}
       \end{enumerate}
       }
       \only<5>{
       \begin{enumerate}%TailcutsImageCleaner
-        \item \textcolor{white!50!black}{Select pixels that pass the \code{white!35!black}{picture threshold}}
-        \item Add pixels that pass the \code{white!70!black}{boundary threshold}
+        \item \textcolor{white!50!black}{Select pixels that pass the \code{white!35!black}{picture threshold} (this talk: \(\SI{6}{\pe}\))}
+        \item Add pixels that pass the \code{white!70!black}{boundary threshold} (here: \(\SI{3}{\pe}\))
       \end{enumerate}
       }
 
